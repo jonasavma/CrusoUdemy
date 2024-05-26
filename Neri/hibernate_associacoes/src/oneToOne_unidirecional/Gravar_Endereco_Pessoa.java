@@ -14,8 +14,8 @@ public class Gravar_Endereco_Pessoa {
             Session sessao = fabrica.openSession();
             Pessoa obj_pessoa = new Pessoa();
             
-            obj_pessoa.setId_pessoa(5);
-            obj_pessoa.setNome_pessoa("Jonas Avelino");
+            obj_pessoa.setId_pessoa(7);
+            obj_pessoa.setNome_pessoa("Jonas ");
       
             
             Endereco obj_endereco= new Endereco();

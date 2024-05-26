@@ -4,7 +4,10 @@ public class Pessoa {
     
     private int id_pessoa;
     private String nome_pessoa;
+    private Endereco endereco;
 
+    
+    
     public int getId_pessoa() {
         return id_pessoa;
     }
@@ -19,6 +22,14 @@ public class Pessoa {
 
     public void setNome_pessoa(String nome_pessoa) {
         this.nome_pessoa = nome_pessoa;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
     
     

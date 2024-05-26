@@ -7,8 +7,7 @@
 
     <session-factory>
         <!-- Configurações de Conexão com o Banco de Dados -->
-        <mapping resource="oneToOne_unidirecional/pessoa.hbm.xml" />
-        <mapping resource="oneToOne_unidirecional/endereco.hbm.xml" />
+        <mapping resource="oneToOne_unidirecional/pessoa_endereco.hbm.xml" />
     </session-factory>
 </hibernate-configuration>
 
