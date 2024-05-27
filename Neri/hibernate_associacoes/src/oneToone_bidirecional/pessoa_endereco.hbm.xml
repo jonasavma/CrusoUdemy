@@ -10,7 +10,7 @@
             <generator class="assigned" />
         </id>
         <property name="nome_pessoa" />
-        <one-to-one class="oneToone_bidirecional.Endereco" name="endereco" cascade="save-update" />
+        <one-to-one class="oneToone_bidirecional.Endereco" name="endereco" cascade=" all" />
     </class>
     
     <class name="oneToone_bidirecional.Endereco" table="endereco">

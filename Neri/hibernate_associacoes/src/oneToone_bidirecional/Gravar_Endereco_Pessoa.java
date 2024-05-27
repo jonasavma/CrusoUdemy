@@ -14,14 +14,14 @@ public class Gravar_Endereco_Pessoa {
             Transaction tx_pessoa = sessao.beginTransaction();
             Pessoa obj_pessoa = new Pessoa();
 
-            obj_pessoa.setId_pessoa(9);
+            obj_pessoa.setId_pessoa(11);
             obj_pessoa.setNome_pessoa("Jonas ");
 
             Endereco obj_endereco = new Endereco();
             obj_endereco.setId_endereco(obj_pessoa.getId_pessoa());
             obj_endereco.setDesc_endereco("Rua Salvador Lombone");
             obj_pessoa.setEndereco(obj_endereco);
-            //sessao.save(obj_endereco);
+            sessao.save(obj_pessoa);
 
             tx_pessoa.commit();
             sessao.close();
