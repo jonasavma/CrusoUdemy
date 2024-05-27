@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="oneToone_bidirecional.Pessoa" table="pessoa">
+        <id name="id_pessoa" column="id_pessoa" type="int" >
+            <generator class="assigned" />
+        </id>
+        <property name="nome_pessoa" />
+        <one-to-one class="oneToone_bidirecional.Endereco" name="endereco" cascade="save-update" />
+    </class>
+    
+    <class name="oneToone_bidirecional.Endereco" table="endereco">
+        <id name="id_endereco" column="id_endereco" type="int" >
+            <generator class="assigned" />
+        </id>
+        <property name="desc_endereco" />
+        <one-to-one class="oneToone_bidirecional.Pessoa" name="pessoa" />
+    </class>
+</hibernate-mapping>
