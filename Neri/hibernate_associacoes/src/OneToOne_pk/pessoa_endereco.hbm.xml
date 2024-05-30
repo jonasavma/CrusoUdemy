@@ -19,7 +19,7 @@
             </generator>
         </id>
         <property name="desc_endereco" />
-        <one-to-one name="pessoa" constrained="true"  cascade="all" foreign-key="fk_pessoa"/>
+        <one-to-one name="pessoa" constrained="true"  cascade="all" fetch="join" foreign-key="fk_pessoa"/>
         
     </class>
 </hibernate-mapping>
