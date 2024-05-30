@@ -1,4 +1,4 @@
-package ManyToOneParaOneToOne;
+package ManyToOneParaOneToOne_FK;
 
 import manytoone_unidirecional.*;
 import oneToone_bidirecional.*;

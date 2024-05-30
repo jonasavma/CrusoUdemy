@@ -1,5 +1,6 @@
-package ManyToOneParaOneToOne;
+package OneToOne_pk;
 
+import ManyToOneParaOneToOne_FK.*;
 import manytoone_unidirecional.*;
 import oneToone_bidirecional.*;
 import javax.swing.JOptionPane;
@@ -15,10 +16,10 @@ public class Delete_Pessoa_Endereco {
             Session sessao = fabrica.openSession();
             Transaction tx = sessao.beginTransaction();
           
-            Pessoa pessoa = (Pessoa) sessao.get(Pessoa.class, 1);
-            sessao.delete(pessoa);
-           // Endereco endereco = (Endereco) sessao.get(Endereco.class, 3);
-           // sessao.delete(endereco);
+            //Pessoa pessoa = (Pessoa) sessao.get(Pessoa.class, 1);
+            //sessao.delete(pessoa);
+            Endereco endereco = (Endereco) sessao.get(Endereco.class, 3);
+            sessao.delete(endereco);
 
             tx.commit();
             sessao.close();

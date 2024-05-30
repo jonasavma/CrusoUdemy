@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="ManyToOneParaOneToOne_FK.Pessoa" table="pessoa">
+        <id name="id_pessoa" column="id_pessoa" type="int" >
+            <generator class="assigned" />
+        </id>
+        <property name="nome_pessoa" />
+        <many-to-one class="ManyToOneParaOneToOne_FK.Endereco"
+                     name="endereco"
+                     column="id_endereco"  
+                     cascade=" all"
+                     foreign-key="fk_endereco"
+                     not-null="true"
+                     unique="true"
+        />
+    </class>
+    
+    <class name="ManyToOneParaOneToOne_FK.Endereco" table="endereco">
+        <id name="id_endereco" column="id_endereco" type="int" >
+            <generator class="assigned" />
+        </id>
+        <property name="desc_endereco" />
+    </class>
+</hibernate-mapping>

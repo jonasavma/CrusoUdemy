@@ -5,25 +5,21 @@
 
 <hibernate-mapping>
 
-    <class name="ManyToOneParaOneToOne.Pessoa" table="pessoa">
+    <class name="OneToOne_pk.Pessoa" table="pessoa">
         <id name="id_pessoa" column="id_pessoa" type="int" >
             <generator class="assigned" />
         </id>
         <property name="nome_pessoa" />
-        <many-to-one class="ManyToOneParaOneToOne.Endereco"
-                     name="endereco"
-                     column="id_endereco"  
-                     cascade=" all"
-                     foreign-key="fk_endereco"
-                     not-null="true"
-                     unique="true"
-        />
     </class>
     
-    <class name="ManyToOneParaOneToOne.Endereco" table="endereco">
+    <class name="OneToOne_pk.Endereco" table="endereco">
         <id name="id_endereco" column="id_endereco" type="int" >
-            <generator class="assigned" />
+            <generator class="foreign" >
+                <param name="property">pessoa</param>
+            </generator>
         </id>
         <property name="desc_endereco" />
+        <one-to-one name="pessoa" constrained="true"  cascade="all" foreign-key="fk_pessoa"/>
+        
     </class>
 </hibernate-mapping>

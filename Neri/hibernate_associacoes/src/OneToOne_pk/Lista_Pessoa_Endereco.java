@@ -1,5 +1,6 @@
-package ManyToOneParaOneToOne;
+package OneToOne_pk;
 
+import ManyToOneParaOneToOne_FK.*;
 import manytoone_unidirecional.*;
 import javax.swing.JOptionPane;
 import org.hibernate.*;
@@ -17,7 +18,7 @@ public class Lista_Pessoa_Endereco {
             String dados = "Dados pessoa .:\n\n";
             dados = dados + "Codigo pessoa.:" + pessoa.getId_pessoa();
             dados = dados + "\nNome Pessoa .: " + pessoa.getNome_pessoa();
-            dados = dados + "\nEndereço :" + pessoa.getEndereco().getDesc_endereco();
+           // dados = dados + "\nEndereço :" + pessoa.getEndereco().getDesc_endereco();
 
             //Como é unidirecional não traz pessoa 
             Endereco endereco = (Endereco) sessao.get(Endereco.class, 1);
