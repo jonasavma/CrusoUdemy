@@ -6,18 +6,18 @@
 <hibernate-mapping>
 
     <class name="oneTomany_unidirecional.Pessoa" table="pessoa">
-        <id name="id_pessoa" column="id_pessoa" type="int" >
+        <id name="id" column="id" type="int" >
             <generator class="assigned" />
         </id>
         <property name="nome_pessoa" />
-        <set name="endereco" table="endereco">
-            <key column="id_Pessoa"  />
+        <set name="endereco" table="endereco" cascade="all">
+            <key column="id_pessoa" foreign-key="fk_pessoa"  />
             <one-to-many class="oneTomany_unidirecional.Endereco"/>
         </set>
     </class>
     
     <class name="oneTomany_unidirecional.Endereco" table="endereco">
-        <id name="id_endereco" column="id_endereco" type="int" >
+        <id name="id" column="id" type="int" >
             <generator class="assigned" />
         </id>
         <property name="desc_endereco" />

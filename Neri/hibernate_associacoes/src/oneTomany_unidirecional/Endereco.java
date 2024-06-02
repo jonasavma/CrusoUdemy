@@ -3,15 +3,15 @@ package oneTomany_unidirecional;
 import oneToOne_unidirecional.*;
 
 public class Endereco {
-    private int id_endereco;
+    private int id;
     private String desc_endereco;
 
-    public int getId_endereco() {
-        return id_endereco;
+    public int getId() {
+        return id;
     }
 
-    public void setId_endereco(int id_endereco) {
-        this.id_endereco = id_endereco;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDesc_endereco() {

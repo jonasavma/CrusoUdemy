@@ -5,16 +5,16 @@ import java.util.Set;
 public class Pessoa {
     
     
-    private int id_pessoa;
+    private int id;
     private String nome_pessoa;
     private Set endereco;
 
-    public int getId_pessoa() {
-        return id_pessoa;
+    public int getId() {
+        return id;
     }
 
-    public void setId_pessoa(int id_pessoa) {
-        this.id_pessoa = id_pessoa;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome_pessoa() {
@@ -33,6 +33,7 @@ public class Pessoa {
         this.endereco = endereco;
     }
 
+   
     
     
     

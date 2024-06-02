@@ -15,7 +15,7 @@ public class Lista_Pessoa_Endereco {
 
             Pessoa pessoa = (Pessoa) sessao.get(Pessoa.class,3);
             String dados = "Dados pessoa .:\n\n";
-            dados = dados + "Codigo pessoa.:" + pessoa.getId_pessoa();
+            dados = dados + "Codigo pessoa.:" + pessoa.getId();
             dados = dados + "\nNome Pessoa .: " + pessoa.getNome_pessoa();
            // dados = dados + "\nEndereço :" + pessoa.getEndereco().getDesc_endereco();
 
