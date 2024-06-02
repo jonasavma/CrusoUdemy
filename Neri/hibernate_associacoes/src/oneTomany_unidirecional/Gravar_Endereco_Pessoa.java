@@ -15,12 +15,12 @@ public class Gravar_Endereco_Pessoa {
             Session sessao = fabrica.openSession();
           
             Pessoa obj_pessoa = new Pessoa();
-            obj_pessoa.setId(4);
+            obj_pessoa.setId(7);
             obj_pessoa.setNome_pessoa("Jonas ");
       
             
             Endereco obj_endereco= new Endereco();
-            obj_endereco.setId(4);
+            obj_endereco.setId(9);
             obj_endereco.setDesc_endereco("Rua Salvador Lombone");
             
             obj_pessoa.setEndereco(new HashSet<Endereco>());

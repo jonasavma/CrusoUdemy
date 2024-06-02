@@ -10,7 +10,7 @@
             <generator class="assigned" />
         </id>
         <property name="nome_pessoa" />
-        <set name="endereco" table="endereco" cascade="all">
+        <set name="endereco" table="endereco" cascade="all" inverse="false">
             <key column="id_pessoa" foreign-key="fk_pessoa"  />
             <one-to-many class="oneTomany_unidirecional.Endereco"/>
         </set>
