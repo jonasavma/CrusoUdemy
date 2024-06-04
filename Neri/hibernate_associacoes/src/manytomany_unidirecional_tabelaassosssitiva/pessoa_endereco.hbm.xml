@@ -10,9 +10,12 @@
             <generator class="assigned" />
         </id>
         <property name="nome_pessoa" />
-        <set name="endereco" table="endereco_pessoa" >
-            <key column="id_pessoa"  />
-            <many-to-many class="onrtomany_unidirecional_tabelaassosssitiva.Endereco" column="id_endereco"/>
+        <set name="endereco" table="endereco_pessoa"  cascade="all">
+            <key column="id_pessoa" 
+                 foreign-key="fk_pessoa"   />
+            <many-to-many class="onrtomany_unidirecional_tabelaassosssitiva.Endereco" 
+                          column="id_endereco"
+                          foreign-key="fk_endereco" />
         </set>
     </class>
     
