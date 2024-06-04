@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="onrtomany_unidirecional_tabelaassosssitiva.Pessoa" table="pessoa">
+        <id name="id" column="id" type="int" >
+            <generator class="assigned" />
+        </id>
+        <property name="nome_pessoa" />
+        <set name="endereco" table="endereco_pessoa" >
+            <key column="id_pessoa"  />
+            <many-to-many class="onrtomany_unidirecional_tabelaassosssitiva.Endereco" column="id_endereco"/>
+        </set>
+    </class>
+    
+    <class name="onrtomany_unidirecional_tabelaassosssitiva.Endereco" table="endereco">
+        <id name="id" column="id" type="int" >
+            <generator class="assigned" />
+        </id>
+        <property name="desc_endereco" />
+    </class>
+</hibernate-mapping>
