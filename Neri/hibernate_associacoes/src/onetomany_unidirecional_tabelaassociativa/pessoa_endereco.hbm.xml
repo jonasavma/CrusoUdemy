@@ -5,21 +5,24 @@
 
 <hibernate-mapping>
 
-    <class name="manytomany_unidirecional_tabelaassosssitiva.Pessoa" table="pessoa">
+    <class name="onetomany_unidirecional_tabelaassociativa.Pessoa" table="pessoa">
         <id name="id" column="id" type="int" >
             <generator class="assigned" />
         </id>
         <property name="nome_pessoa" />
-        <set name="endereco" table="endereco_pessoa"  cascade="all">
+        <set name="endereco"
+             table="endereco_pessoa"
+             cascade="all">
             <key column="id_pessoa" 
                  foreign-key="fk_pessoa"   />
-            <many-to-many class="manytomany_unidirecional_tabelaassosssitiva.Endereco" 
+            <many-to-many class="onetomany_unidirecional_tabelaassociativa.Endereco" 
                           column="id_endereco"
+                          unique="true"
                           foreign-key="fk_endereco" />
         </set>
     </class>
     
-    <class name="manytomany_unidirecional_tabelaassosssitiva.Endereco" table="endereco">
+    <class name="onetomany_unidirecional_tabelaassociativa.Endereco" table="endereco">
         <id name="id" column="id" type="int" >
             <generator class="assigned" />
         </id>

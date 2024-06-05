@@ -1,5 +1,6 @@
-package manytomany_unidirecional_tabelaassosssitiva;
+package onetomany_unidirecional_tabelaassociativa;
 
+import manytomany_unidirecional_tabelaassosssitiva.*;
 import java.util.HashSet;
 import javax.swing.JOptionPane;
 import org.hibernate.*;
@@ -14,7 +15,7 @@ public class Gravar_Endereco_Pessoa {
             Session sessao = fabrica.openSession();
 
             Pessoa obj_pessoa = new Pessoa();
-            obj_pessoa.setId(1);
+            obj_pessoa.setId(2);
             obj_pessoa.setNome_pessoa("Jonas ");
 
             Endereco obj_endereco = new Endereco();

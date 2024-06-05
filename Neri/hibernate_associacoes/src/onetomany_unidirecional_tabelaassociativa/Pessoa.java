@@ -1,5 +1,6 @@
-package manytomany_unidirecional_tabelaassosssitiva;
+package onetomany_unidirecional_tabelaassociativa;
 
+import manytomany_unidirecional_tabelaassosssitiva.*;
 import oneTomany_unidirecional.*;
 import java.util.Set;
 
