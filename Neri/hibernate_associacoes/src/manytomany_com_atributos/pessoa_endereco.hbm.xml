@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="manytomany_com_atributos.Pessoa" table="pessoa">
+        <id name="id_pessoa" column="id_pessoa" type="int" >
+            <generator class="assigned" />
+        </id>
+        <property name="nome_pessoa" />
+        <one-to-one class="manytomany_com_atributos.Endereco" name="endereco" cascade="all"  />
+    </class>
+    
+    <class name="manytomany_com_atributos.Endereco" table="endereco">
+        <id name="id_endereco" column="id_endereco" type="int" >
+            <generator class="assigned" />
+        </id>
+        <property name="desc_endereco" />
+        
+    </class>
+    
+    <class name="manytomany_com_atributos.endereco_pessoa"
+           table="endereco_pessoa" >
+        <composite-id name="compositeID" 
+                      class="manytomany_com_atributos.ids_endereco_pessoa" >
+            <key-many-to-one name="pessoa" foreign-key="fk_pessoa" column="id_pessoa"  class="manytomany_com_atributos.Pessoa"/>
+            <key-many-to-one name="endereco" foreign-key="fk_endereco"  column="id_endereco"  class="manytomany_com_atributos.Endereco"/>                
+        </composite-id>
+        <property name="complemento"/>
+        
+    </class>
+    
+</hibernate-mapping>
