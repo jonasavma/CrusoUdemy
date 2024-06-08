@@ -14,13 +14,13 @@
         <property name="fone" />
         <property name="cidade" />
         
-        <subclass name="heranca_hierarquia.PessoaFisica">
+        <subclass name="heranca_hierarquia.PessoaFisica" discriminator-value="pf">
             <property name="cpf" />
             <property name="rg" />
             <property name="sexo" />
         </subclass>
         
-        <subclass name="heranca_hierarquia.PessoaJuridica">
+        <subclass name="heranca_hierarquia.PessoaJuridica" discriminator-value="pj">
             <property name="cnpj" />
             <property name="inscr_estadual" />
             <property name="gerente" />

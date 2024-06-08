@@ -24,3 +24,6 @@ hs_err_pid*
 replay_pid*
 /Neri/hibernate_associacoes/build/
 /Neri/hibernate_associacoes/dist/
+/Neri/hibernate_associacoes/nbproject/private/
+/Neri/hibernate_heranca/nbproject/private/
+/Neri/hibernate_heranca/build/
