@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="manytomany_bidirecional_tres_tabela.Pessoa" table="pessoa">
+        <id name="id_pessoa" column="id_pessoa" type="int" >
+            <generator class="assigned" />
+        </id>
+        <property name="nome_pessoa" />
+        <set table="endereco_pessoa" name="endereco" >
+            <key column="id_pessoa"  foreign-key="fk_pessoa"/>
+            <many-to-many 
+                column="id_endereco"
+                class="manytomany_bidirecional_tres_tabela.Endereco" />
+        </set>
+    </class>
+    
+    <class name="manytomany_bidirecional_tres_tabela.Endereco" table="endereco">
+        <id name="id_endereco" column="id_endereco" type="int" >
+            <generator class="assigned" />
+        </id>
+        <property name="desc_endereco" />
+        <set table="endereco_pessoa" name="pessoa" inverse="true">
+            <key column="id_endereco"  foreign-key="fk_endereco"  />
+            <many-to-many   column="id_pessoa" class="manytomany_bidirecional_tres_tabela.Pessoa" />
+        </set>
+    </class>
+</hibernate-mapping>
