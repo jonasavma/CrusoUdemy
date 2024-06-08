@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="heranca_joinerd_cubclass_forma02.PessoaFisica" table="pessoa">
+        <joined-subclass name="heranca_joinerd_cubclass_forma02.PessoaFisica"
+                         table="pessoa_fisica" extends="heranca_joinerd_cubclass_forma02.Pessoa" >
+            <key  column="id_pessoa_fisica"  foreign-key="fk_pessoa_fisica"/>
+            <property name="cpf" />
+            <property name="rg" />
+            <property name="sexo" />
+        </joined-subclass>
+        
+    </class>
+        
+</hibernate-mapping>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="heranca_hierarquia.Pessoa" table="pessoa">
+        <id column="id" name="id"  type="int" >
+            <generator  class="assigned" />
+        </id>
+        
+        <property name="nome" />
+        <property name="fone" />
+        <property name="cidade" />
+        
+        <subclass name="heranca_hierarquia.PessoaFisica">
+            <property name="cpf" />
+            <property name="rg" />
+            <property name="sexo" />
+        </subclass>
+        
+        <subclass name="heranca_hierarquia.PessoaJuridica">
+            <property name="cnpj" />
+            <property name="inscr_estadual" />
+            <property name="gerente" />
+        </subclass>
+        
+    </class>
+        
+</hibernate-mapping>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+        <!-- Configurações de Conexão com o Banco de Dados -->
+        <mapping resource="heranca_hierarquia/mapeamento_geral.hbm.xml" />
+    </session-factory>
+</hibernate-configuration>
+
+

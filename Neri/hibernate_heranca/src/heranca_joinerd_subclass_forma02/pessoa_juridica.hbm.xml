@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <joined-subclass name="heranca_joinerd_subclass_forma02.PessoaJuridica"
+                     table="pessoa_juridica" 
+                     extends="heranca_joinerd_subclass_forma02.Pessoa" >
+        <key  column="id_pessoa_juridica"  foreign-key="fk_pessoa_juridica"/>
+        <property name="cnpj" />
+        <property name="inscr_estadual" />
+        <property name="gerente" />
+    </joined-subclass>
+</hibernate-mapping>
