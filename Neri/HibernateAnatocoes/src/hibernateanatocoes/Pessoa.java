@@ -1,16 +1,26 @@
 package hibernateanatocoes;
 
+import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "pessoas")
-public class Pessoa {
+public class Pessoa implements Serializable{
     
     
-    private int id;
+    @Id
+    private Integer id;
+    
+    @Column(name = "nome")
     private String nome;
+    
+    @Column(name = "fone")
     private String fone;
+    
+    @Column(name = "cidade")
     private String cidade;
 
     public int getId() {
