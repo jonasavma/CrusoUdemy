@@ -2,40 +2,30 @@ package associacao;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import org.hibernate.annotations.CollectionId;
-import org.hibernate.annotations.CollectionOfElements;
-import org.hibernate.annotations.Type;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 @Entity
 @Table(name = "pessoas")
 public class Pessoa implements Serializable {
 
     @Id
-    @SequenceGenerator(name = "generator_pessoa", sequenceName = "sequence_pessoa")
-    @GeneratedValue(generator = "generator_pessoa")
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
 
     @Column(name = "nome", length = 70, nullable = true)
     private String nome;
-
-    @Column(name = "fone", length = 40, nullable = true)
-    private String fone;
-
-    @Column(name = "cidade", length = 20)
-    private String cidade;
-
+    
     @Column(precision = 2)
     private double salario;
 
@@ -46,6 +36,7 @@ public class Pessoa implements Serializable {
     private Date dataNascimento;
 
     @OneToOne
+    @Cascade(CascadeType.ALL)
     @JoinColumn(name = "id_endereco_pessoa")
     private Endereco endereco;
 
@@ -57,21 +48,7 @@ public class Pessoa implements Serializable {
         this.nome = nome;
     }
 
-    public String getFone() {
-        return fone;
-    }
 
-    public void setFone(String fone) {
-        this.fone = fone;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
 
     public double getSalario() {
         return salario;
@@ -97,14 +74,15 @@ public class Pessoa implements Serializable {
         this.dataNascimento = dataNascimento;
     }
 
-
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
+
+
 
     public Endereco getEndereco() {
         return endereco;
