@@ -1,18 +1,23 @@
-package associacao;
+package one_to_many;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table(name = "endereco")
-public class Endereco {
+public class Endereco implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,10 +26,11 @@ public class Endereco {
     private String cidade;
     private String estado;
     private String cep;
-    
-    @OneToOne(targetEntity = Pessoa.class)
-    @Cascade(CascadeType.ALL)
-    @JoinColumn(name = "id_pessoa")
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_pessoa", updatable = true, insertable = true)
+    @Fetch(FetchMode.JOIN)
+    @Cascade(CascadeType.SAVE_UPDATE)
     private Pessoa pessoa;
 
     public int getId() {
@@ -34,7 +40,6 @@ public class Endereco {
     public void setId(int id) {
         this.id = id;
     }
-
 
     public String getRua() {
         return rua;
@@ -76,7 +81,4 @@ public class Endereco {
         this.pessoa = pessoa;
     }
 
-    
-    
-    
 }

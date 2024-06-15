@@ -1,19 +1,24 @@
-package associacao;
+package one_to_many;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table(name = "pessoas")
@@ -35,10 +40,10 @@ public class Pessoa implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dataNascimento;
 
-    @OneToOne(targetEntity = Endereco.class)
+    @OneToMany(mappedBy = "pessoa",fetch = FetchType.LAZY)
     @Cascade(CascadeType.ALL)
-    @JoinColumn(name = "id_endereco_pessoa")
-    private Endereco endereco;
+    @Fetch(FetchMode.JOIN)
+    private Collection<Endereco> endereco;
 
     public String getNome() {
         return nome;
@@ -82,15 +87,14 @@ public class Pessoa implements Serializable {
         this.id = id;
     }
 
-
-
-    public Endereco getEndereco() {
+    public Collection<Endereco> getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(Endereco endereco) {
+    public void setEndereco(Collection<Endereco> endereco) {
         this.endereco = endereco;
     }
+
 
 
 }

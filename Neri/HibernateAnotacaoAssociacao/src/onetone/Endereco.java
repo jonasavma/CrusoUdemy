@@ -1,5 +1,6 @@
-package associacao;
+package onetone;
 
+import associacao.*;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

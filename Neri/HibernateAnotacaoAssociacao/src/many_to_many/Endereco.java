@@ -1,18 +1,20 @@
-package associacao;
+package many_to_many;
 
+import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 
 @Entity
 @Table(name = "endereco")
-public class Endereco {
+public class Endereco implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,11 +23,10 @@ public class Endereco {
     private String cidade;
     private String estado;
     private String cep;
-    
-    @OneToOne(targetEntity = Pessoa.class)
-    @Cascade(CascadeType.ALL)
-    @JoinColumn(name = "id_pessoa")
-    private Pessoa pessoa;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "endereco_pessoa", joinColumns = @JoinColumn(name = "id_pessoa"), inverseJoinColumns = @JoinColumn(name = "id_endereco"))
+    private Collection<Pessoa>  pessoa;
 
     public int getId() {
         return id;
@@ -34,7 +35,6 @@ public class Endereco {
     public void setId(int id) {
         this.id = id;
     }
-
 
     public String getRua() {
         return rua;
@@ -68,15 +68,13 @@ public class Endereco {
         this.cep = cep;
     }
 
-    public Pessoa getPessoa() {
+    public Collection<Pessoa> getPessoa() {
         return pessoa;
     }
 
-    public void setPessoa(Pessoa pessoa) {
+    public void setPessoa(Collection<Pessoa> pessoa) {
         this.pessoa = pessoa;
     }
 
-    
-    
-    
+
 }

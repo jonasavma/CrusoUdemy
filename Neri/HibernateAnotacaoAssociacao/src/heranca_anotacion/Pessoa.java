@@ -1,22 +1,16 @@
-package associacao;
+package heranca_anotacion;
 
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 
-@Entity
-@Table(name = "pessoas")
+@MappedSuperclass
 public class Pessoa implements Serializable {
 
     @Id
@@ -35,10 +29,6 @@ public class Pessoa implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dataNascimento;
 
-    @OneToOne(targetEntity = Endereco.class)
-    @Cascade(CascadeType.ALL)
-    @JoinColumn(name = "id_endereco_pessoa")
-    private Endereco endereco;
 
     public String getNome() {
         return nome;
@@ -82,15 +72,6 @@ public class Pessoa implements Serializable {
         this.id = id;
     }
 
-
-
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
-    }
 
 
 }
