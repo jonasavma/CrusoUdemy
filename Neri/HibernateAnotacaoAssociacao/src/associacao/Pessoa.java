@@ -1,15 +1,15 @@
-package hibernateanatocoes;
+package associacao;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -45,15 +45,9 @@ public class Pessoa implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date dataNascimento;
 
-    @CollectionOfElements
-    @JoinTable(name = "telefones_pessoa", joinColumns = @JoinColumn(name = "id_pessoa"))
-    @Column(name = "tel_numeros")
-    // private Set<String> telefones_pessoa;
-
-    //Coleção com Bag
-    @SequenceGenerator(name = "seq_hibernate", sequenceName = "seq_pessoa_fone")
-    @CollectionId(columns = @Column(name = "id_fone_pessoa"), generator = "seq_hibernate", type = @Type(type = "integer"))
-    private List<String> telefones_pessoa;
+    @OneToOne
+    @JoinColumn(name = "id_endereco_pessoa")
+    private Endereco endereco;
 
     public String getNome() {
         return nome;
@@ -112,12 +106,13 @@ public class Pessoa implements Serializable {
         this.id = id;
     }
 
-    public List<String> getTelefones_pessoa() {
-        return telefones_pessoa;
+    public Endereco getEndereco() {
+        return endereco;
     }
 
-    public void setTelefones_pessoa(List<String> telefones_pessoa) {
-        this.telefones_pessoa = telefones_pessoa;
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
+
 
 }

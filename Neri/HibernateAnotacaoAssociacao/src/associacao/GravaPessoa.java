@@ -1,8 +1,5 @@
-package hibernateanatocoes;
+package associacao;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 import javax.swing.JOptionPane;
 import org.hibernate.*;
 import org.hibernate.cfg.AnnotationConfiguration;
@@ -14,6 +11,7 @@ public class GravaPessoa {
         try {
             AnnotationConfiguration cfg = new AnnotationConfiguration();
             cfg.addAnnotatedClass(Pessoa.class);
+            cfg.addAnnotatedClass(Endereco.class);
             SessionFactory fabrica = cfg.buildSessionFactory();
             Session sessao = fabrica.openSession();
 
@@ -23,8 +21,8 @@ public class GravaPessoa {
             obj_pessoa.setCidade("Rio de janeiro");
             obj_pessoa.setSalario(10000.05);
 
-           
-            //obj_pessoa.setTelefones_pessoa(telefones_pessoa);
+            
+            
 
             Transaction tx_pessoa = sessao.beginTransaction();
             sessao.saveOrUpdate(obj_pessoa);

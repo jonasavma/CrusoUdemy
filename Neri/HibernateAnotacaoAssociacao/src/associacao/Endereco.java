@@ -1,36 +1,64 @@
-package ManyToOneParaOneToOne_FK;
+package associacao;
 
-import manytoone_unidirecional.*;
-import oneToone_bidirecional.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "endereco")
 public class Endereco {
-    private int id_endereco;
-    private String desc_endereco;
-    private Pessoa pessoa;
 
-    public int getId_endereco() {
-        return id_endereco;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
+    private String rua;
+    private String cidade;
+    private String estado;
+    private String cep;
+
+    public Long getId() {
+        return id;
     }
 
-    public void setId_endereco(int id_endereco) {
-        this.id_endereco = id_endereco;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getDesc_endereco() {
-        return desc_endereco;
+    public String getRua() {
+        return rua;
     }
 
-    public void setDesc_endereco(String desc_endereco) {
-        this.desc_endereco = desc_endereco;
+    public void setRua(String rua) {
+        this.rua = rua;
     }
 
-    public Pessoa getPessoa() {
-        return pessoa;
+    public String getCidade() {
+        return cidade;
     }
 
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
     }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    
     
     
 }

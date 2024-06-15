@@ -1,7 +1,7 @@
-package hibernateanatocoes;
+package associacao;
 
 import java.util.Iterator;
-import java.util.Set;
+import java.util.List;
 import javax.swing.JOptionPane;
 import org.hibernate.*;
 import org.hibernate.cfg.*;
@@ -21,7 +21,7 @@ public class Listar_Pessoa {
             dados = dados + "Codigo pessoa.:" + pessoa.getId();
             dados = dados + "\nNome Pessoa .: " + pessoa.getNome();
 
-//            Set<String> telefones_pessoa = pessoa.getTelefones_pessoa();
+//            List<String> telefones_pessoa = pessoa.getTelefones_pessoa();
 //            int quantidades_fones_do_aluno = telefones_pessoa.size();
 //            Iterator it_fones_aluno = telefones_pessoa.iterator();
 //            String fones_deste_aluno = "";
